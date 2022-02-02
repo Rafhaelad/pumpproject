@@ -57,36 +57,30 @@ void loop() {
   checkHumidity();
 
   
-   * if (digitalRead(checkhumdity) == HIGH ) {
-          Serial.println("The plant needs water");
-   }
-
-   
-  // If statement is true call function water()
+ // If statement is true call function water()
   if (checkhumidity < low) {
       Serial.println("The plant need water");
-
-     
+ 
+    
+ //check distance of water and see if it is less than the limit()
     if (distance > limit) {
       Serial.println("Tank is getting low");
       
     } else {
-      
+    
       water();
         delay(600 000); 
     }
   }
 
   
-
-
-
-
-  // blink every loop
+//funktion to blink with a delay for every loop 
   blinker();
   delay(500);
 }
 
+
+//funktion to make the blinker blink
 void blinker() {
   digitalWrite(blinkPin, blinkBool);
   blinkBool = !blinkBool;
